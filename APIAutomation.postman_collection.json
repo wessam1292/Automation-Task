@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "a01ad158-d2a6-4087-9016-b1080c9c492f",
+		"name": "APIAutomation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validate that we can get the expected request body and status code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    \r",
+							"});\r",
+							"pm.test(\"The response has all properties\", () => {\r",
+							"    //parse the response JSON and test three properties\r",
+							"    const responseJson = pm.response.json();\r",
+							"    console.log(responseJson);\r",
+							"    // pm.expect(responseJson.data[1].name).to.equal('Hello- test');\r",
+							"    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						""
+					],
+					"query": [
+						{
+							"key": "$limit",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "$skip",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetRequest",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Allow",
+							"value": "GET,POST,PUT,PATCH,DELETE"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23f8-jJuBY/eOuMq65okrWnZLEdxvJjM\""
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Feb 2022 18:58:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total\": 4306,\n    \"limit\": 10,\n    \"skip\": 0,\n    \"data\": [\n        {\n            \"id\": \"abcat0010000\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"pcmcat748300579354\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.899Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat748301108075\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.899Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat84000050000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat84000050001\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat84000050002\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat84000050004\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat94300050028\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0010000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0020001\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0010000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0020001\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0100000\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"abcat0101000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0105000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0106000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0107000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0203000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0205007\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat138100050024\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat139900050002\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat158900050008\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.899Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat161100050040\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.899Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0101000\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"abcat0107000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat138100050024\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat193400050018\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat205800050000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat220700050011\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat301000050010\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat333800050003\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat333800050004\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat333800050005\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0101000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102000\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"abcat0102003\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102005\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102006\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102007\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat219900050000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102003\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"pcmcat205900050012\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat748301694302\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.899Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102003\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102005\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"pcmcat138100050024\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102005\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102006\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"pcmcat138100050024\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102006\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102007\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [\n                {\n                    \"id\": \"pcmcat138100050024\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.643Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102007\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"abcat0102008\",\n            \"name\": \"Hello- test \",\n            \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n            \"updatedAt\": \"2022-02-11T23:34:57.218Z\",\n            \"subCategories\": [],\n            \"categoryPath\": [\n                {\n                    \"id\": \"abcat0100000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"abcat0102008\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:04.285Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                },\n                {\n                    \"id\": \"pcmcat219900050000\",\n                    \"name\": \"Hello- test \",\n                    \"createdAt\": \"2016-11-17T17:57:05.399Z\",\n                    \"updatedAt\": \"2022-02-11T23:34:57.218Z\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate that we can create new record  with success response code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"hana\",\r\n  \"id\": \"abcat0102066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate that we can update specific record sucessfully with success response code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"wessam\",\"id\": \"abcat0010000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate that we can get the expected reponse for specific ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The response has all properties\", () => {\r",
+							" const responseJson = pm.response.json();\r",
+							" pm.expect(responseJson.id).to.eql(\"abcat0010000\");\r",
+							"     pm.expect(responseJson.name).to.eql(\"wessam\");\r",
+							"     pm.expect(responseJson.updatedAt).to.eql(\"2022-02-12T21:14:45.163Z\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/categories/abcat0010000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						"abcat0010000"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate that we can delete specific record successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/categories/pcmcat84000050000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						"pcmcat84000050000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate that specific record deleted successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The response has all properties\", () => {\r",
+							" const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.message).to.eqls(\"No record found for id 'pcmcat84000050000'\");\r",
+							"    \r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/categories/pcmcat84000050000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						"pcmcat84000050000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate that data created successffully in \"post\" Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The response has all properties\", () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.name).to.eqls(\"BadRequest\");\r",
+							"pm.expect(responseJson.errors[0].message).to.eqls(\"id must be unique\");\r",
+							"    \r",
+							"    \r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"hana\",\r\n  \"id\": \"abcat0102066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate that reocrd updated successfully after \"patch\" request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The response has all properties\", () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"pm.expect(responseJson.data[0].name).to.eqls(\"wessam\");});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
